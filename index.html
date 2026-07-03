@@ -29,8 +29,9 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- Custom Download Button Styles -->
+    <!-- Custom Styles -->
     <style>
+      /* ====== DOWNLOAD BUTTON ====== */
       .btn-download-resume {
         display: inline-block;
         background-color: #149ddd;
@@ -56,31 +57,258 @@
       .btn-download-resume i {
         font-size: 18px;
       }
-      /* Center hero content */
+
+      /* ====== HERO ====== */
       #hero .container {
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
-      .hero-content{
+      .hero-content {
         display: flex;
         gap: 40px;
         align-items: center;
+        flex-wrap: wrap;
       }
       #hero p {
         margin-bottom: 5px;
       }
-      /* Ensure typed cursor stays inline */
       #hero .typed-cursor {
         display: inline-block;
+      }
+
+      /* ====== MOBILE-RESPONSIVE HEADER ====== */
+      @media (max-width: 1199px) {
+        /* Sidebar becomes a top header bar on mobile */
+        #header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 9999;
+          background: #040b14;
+          padding: 12px 20px;
+          display: flex;
+          flex-direction: row !important;
+          align-items: center;
+          justify-content: space-between;
+          height: 70px;
+          width: 100% !important;
+          border-right: none;
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        #header .profile-img {
+          width: 45px;
+          height: 45px;
+          flex-shrink: 0;
+          margin: 0;
+        }
+        #header .profile-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        #header .logo {
+          margin: 0;
+          padding: 0;
+          flex: 1;
+          justify-content: flex-start;
+          padding-left: 12px;
+        }
+        #header .logo h1 {
+          font-size: 18px;
+          margin: 0;
+          line-height: 1.2;
+          white-space: nowrap;
+        }
+
+        #header .social-links {
+          display: flex;
+          gap: 10px;
+          margin: 0 12px 0 0;
+          padding: 0;
+        }
+        #header .social-links a {
+          font-size: 18px;
+          margin: 0;
+          width: auto;
+          height: auto;
+          background: transparent;
+          border-radius: 0;
+          padding: 0;
+          color: rgba(255, 255, 255, 0.6);
+          transition: color 0.3s;
+        }
+        #header .social-links a:hover {
+          color: #149ddd;
+          background: transparent;
+          transform: none;
+        }
+
+        /* Mobile hamburger - aligned right */
+        .header-toggle {
+          display: block !important;
+          font-size: 28px;
+          color: #fff;
+          cursor: pointer;
+          margin-left: auto;
+          order: 10;
+          padding: 0 0 0 12px;
+          line-height: 1;
+        }
+
+        /* Navmenu - slide-in from left */
+        #navmenu {
+          position: fixed;
+          top: 0;
+          left: -280px;
+          width: 280px;
+          height: 100vh;
+          background: #040b14;
+          padding: 70px 20px 30px;
+          transition: left 0.3s ease;
+          z-index: 99999;
+          overflow-y: auto;
+          box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+        }
+        #navmenu.mobile-nav-active {
+          left: 0;
+        }
+        #navmenu ul {
+          display: block !important;
+          padding: 0;
+          margin: 0;
+        }
+        #navmenu ul li {
+          display: block;
+          margin: 0;
+          padding: 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        #navmenu ul li a {
+          display: block;
+          padding: 12px 0;
+          font-size: 15px;
+          color: rgba(255, 255, 255, 0.7);
+          transition: all 0.3s;
+        }
+        #navmenu ul li a:hover,
+        #navmenu ul li a.active {
+          color: #149ddd;
+          padding-left: 10px;
+        }
+        #navmenu ul li a i {
+          margin-right: 10px;
+          font-size: 18px;
+        }
+
+        /* Overlay */
+        .mobile-nav-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 99998;
+          display: none;
+        }
+        .mobile-nav-overlay.active {
+          display: block;
+        }
+
+        /* Close button inside nav */
+        .nav-close-btn {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 30px;
+          color: #fff;
+          cursor: pointer;
+          background: none;
+          border: none;
+          padding: 0;
+          line-height: 1;
+        }
+      }
+
+      /* ====== HERO RESPONSIVE ====== */
+      @media (max-width: 768px) {
+        .hero-content {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        .hero-content h2 {
+          font-size: 28px;
+          margin-bottom: 0;
+        }
+        .btn-download-resume {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+        .btn-download-resume i {
+          font-size: 16px;
+        }
+        #hero p {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content h2 {
+          font-size: 22px;
+        }
+        #hero p {
+          font-size: 16px;
+        }
+        .btn-download-resume {
+          padding: 8px 16px;
+          font-size: 13px;
+        }
+        .btn-download-resume i {
+          font-size: 14px;
+        }
+        #header .logo h1 {
+          font-size: 15px;
+        }
+        #header .social-links a {
+          font-size: 16px;
+        }
+      }
+
+      /* ====== PREVENT CONTENT UNDER FIXED HEADER ====== */
+      @media (max-width: 1199px) {
+        body {
+          padding-top: 70px;
+        }
+        #hero {
+          padding-top: 20px;
+        }
+      }
+
+      /* ====== OVERRIDE DEFAULT HEADER STYLES FOR MOBILE ====== */
+      @media (max-width: 1199px) {
+        #header.dark-background {
+          background: #040b14 !important;
+        }
+        #header .profile-img img {
+          border: 2px solid #149ddd;
+        }
       }
     </style>
   </head>
 
   <body class="index-page">
+    <!-- ======= Mobile Nav Overlay ======= -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
     <!-- ======= Header ======= -->
     <header id="header" class="header dark-background d-flex flex-column">
-      <i class="header-toggle d-xl-none bi bi-list"></i>
+      <i class="header-toggle d-xl-none bi bi-list" id="navToggle"></i>
 
       <div class="profile-img">
         <img src="assets/img/my-profile-img.jpeg" alt="Arslan Yousaf" class="img-fluid rounded-circle" />
@@ -90,13 +318,14 @@
         <h1 class="sitename">Arslan Yousaf</h1>
       </a>
 
-      <!-- Sidebar Social Links: only LinkedIn and GitHub -->
+      <!-- Sidebar Social Links -->
       <div class="social-links text-center">
         <a href="https://linkedin.com/in/arslan-yousaf-789920178" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
         <a href="https://github.com/maych1997" class="github" target="_blank"><i class="bi bi-github"></i></a>
       </div>
 
       <nav id="navmenu" class="navmenu">
+        <button class="nav-close-btn d-xl-none" id="navCloseBtn">&times;</button>
         <ul>
           <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
           <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
@@ -302,7 +531,7 @@
         </div>
       </section>
 
-      <!-- ======= Resume Section ======= (fully adapted to CV) -->
+      <!-- ======= Resume Section ======= -->
       <section id="resume" class="resume section">
         <div class="container section-title" data-aos="fade-up">
           <h2>Resume</h2>
@@ -323,21 +552,18 @@
               </div>
 
               <h3 class="resume-title">Education</h3>
-              <!-- Bachelor's Degree -->
               <div class="resume-item">
                 <h4>Bachelor of Science in Software Engineering</h4>
                 <h5>Feb 2016 – Aug 2020</h5>
                 <p><em>COMSATS University Islamabad, Lahore Campus</em></p>
                 <p>CGPA: 3.2/4.0. Focus on software development, algorithms, and database systems.</p>
               </div>
-              <!-- FSc Pre-Engineering -->
               <div class="resume-item">
                 <h4>FSc Pre-Engineering</h4>
                 <h5>2013 – 2015</h5>
                 <p><em>Government College of Science, Lahore, Pakistan</em></p>
                 <p>Specialized in Physics, Chemistry, and Mathematics.</p>
               </div>
-              <!-- Matric -->
               <div class="resume-item">
                 <h4>Matric (Science)</h4>
                 <h5>2011 – 2013</h5>
@@ -348,7 +574,6 @@
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
               <h3 class="resume-title">Professional Experience</h3>
-              <!-- Douxl Technologies -->
               <div class="resume-item">
                 <h4>Frontend Developer</h4>
                 <h5>Jul 2025 – March 2023</h5>
@@ -358,7 +583,6 @@
                   <li>Implemented Firebase Push Notifications, real-time chat, WebRTC calling, live ride tracking, maps, in-app purchases, Stripe.</li>
                 </ul>
               </div>
-              <!-- Index World Pvt Ltd -->
               <div class="resume-item">
                 <h4>Frontend Developer</h4>
                 <h5>Aug 2023 – June 2025</h5>
@@ -369,7 +593,6 @@
                   <li>Frontend development for Odoo websites.</li>
                 </ul>
               </div>
-              <!-- E-Sparks -->
               <div class="resume-item">
                 <h4>Frontend Developer</h4>
                 <h5>Dec 2021 – Jul 2023</h5>
@@ -379,7 +602,6 @@
                   <li>Integrated live call features, GraphQL, Firebase, and Magento 2 custom modules.</li>
                 </ul>
               </div>
-              <!-- Junior PHP Developer (LAST) -->
               <div class="resume-item">
                 <h4>Junior PHP Developer</h4>
                 <h5>May 2021 – Nov 2021 · 7 mos</h5>
@@ -458,12 +680,6 @@
                   <div class="portfolio-info"><h4>Salvo 1968</h4><a href="assets/img/portfolio/product-3.png" title="Salvo 1968" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a></div>
                 </div>
               </div>
-              <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="Magento 2" />
-                  <div class="portfolio-info"><h4>Magento 2</h4><p>Custom modules, frontend</p><a href="assets/img/portfolio/product-2.jpg" title="Magento 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a></div>
-                </div>
-              </div> -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
                   <img src="assets/img/portfolio/app-3.png" class="img-fluid" alt="Angular" />
@@ -475,7 +691,7 @@
         </div>
       </section>
 
-      <!-- ======= Personal Projects Section (ALL projects from CV - React Native first) ======= -->
+      <!-- ======= Personal Projects Section ======= -->
       <section id="personal-projects" class="personal-projects section">
         <div class="container section-title" data-aos="fade-up">
           <h2>Projects &amp; Certifications</h2>
@@ -483,8 +699,6 @@
         </div>
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row gy-4">
-            <!-- REACT NATIVE PROJECTS (TOP) -->
-            <!-- Stripe Payment Integration -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-credit-card-2-front" style="font-size: 2rem; color: #149ddd;"></i>
@@ -493,7 +707,6 @@
                 <span class="badge bg-primary">React Native</span> <span class="badge bg-info">Stripe</span>
               </div>
             </div>
-            <!-- Track It -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-clock-history" style="font-size: 2rem; color: #149ddd;"></i>
@@ -502,7 +715,6 @@
                 <span class="badge bg-primary">React Native</span> <span class="badge bg-info">Firebase</span> <span class="badge bg-secondary">MySQL</span>
               </div>
             </div>
-            <!-- Expenditure App -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-wallet2" style="font-size: 2rem; color: #149ddd;"></i>
@@ -511,7 +723,6 @@
                 <span class="badge bg-primary">React Native</span> <span class="badge bg-info">Firebase</span>
               </div>
             </div>
-            <!-- Catstronomy -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-paw" style="font-size: 2rem; color: #149ddd;"></i>
@@ -520,7 +731,6 @@
                 <span class="badge bg-primary">React Native</span> <span class="badge bg-info">Firebase</span>
               </div>
             </div>
-            <!-- Spoused -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-heart-pulse" style="font-size: 2rem; color: #149ddd;"></i>
@@ -530,9 +740,6 @@
                 <span class="badge bg-success">Firebase</span>
               </div>
             </div>
-
-            <!-- OTHER PROJECTS (Angular, Laravel, Unity, Java) -->
-            <!-- AIC -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-table" style="font-size: 2rem; color: #149ddd;"></i>
@@ -541,7 +748,6 @@
                 <span class="badge bg-primary">Angular</span>
               </div>
             </div>
-            <!-- iAgility -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-calendar-check" style="font-size: 2rem; color: #149ddd;"></i>
@@ -550,7 +756,6 @@
                 <span class="badge bg-primary">Angular</span>
               </div>
             </div>
-            <!-- Music Mania -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-music-note-beamed" style="font-size: 2rem; color: #149ddd;"></i>
@@ -559,7 +764,6 @@
                 <span class="badge bg-primary">Laravel</span> <span class="badge bg-info">PHP</span>
               </div>
             </div>
-            <!-- Zombie Shooters -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-joystick" style="font-size: 2rem; color: #149ddd;"></i>
@@ -568,7 +772,6 @@
                 <span class="badge bg-primary">Unity 3D</span> <span class="badge bg-info">C#</span>
               </div>
             </div>
-            <!-- Choose the Celebrity App -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-android2" style="font-size: 2rem; color: #149ddd;"></i>
@@ -577,7 +780,6 @@
                 <span class="badge bg-primary">Java</span> <span class="badge bg-info">Android</span>
               </div>
             </div>
-            <!-- Drumpad App -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-drum" style="font-size: 2rem; color: #149ddd;"></i>
@@ -586,7 +788,6 @@
                 <span class="badge bg-primary">Java</span> <span class="badge bg-info">Android</span>
               </div>
             </div>
-            <!-- Prolink (FYP) -->
             <div class="col-lg-4 col-md-6">
               <div class="project-item p-4 border rounded h-100">
                 <i class="bi bi-people" style="font-size: 2rem; color: #149ddd;"></i>
@@ -635,7 +836,7 @@
         </div>
       </section>
 
-      <!-- ======= Testimonials Section ======= (ONLY CLIENTS) -->
+      <!-- ======= Testimonials Section ======= -->
       <section id="testimonials" class="testimonials section">
         <div class="container section-title" data-aos="fade-up">
           <h2>Testimonials</h2>
@@ -763,5 +964,56 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Mobile Nav JavaScript -->
+    <script>
+      (function() {
+        'use strict';
+
+        const navToggle = document.getElementById('navToggle');
+        const navCloseBtn = document.getElementById('navCloseBtn');
+        const navmenu = document.getElementById('navmenu');
+        const overlay = document.getElementById('mobileNavOverlay');
+        const navLinks = navmenu.querySelectorAll('a');
+
+        function openNav() {
+          navmenu.classList.add('mobile-nav-active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeNav() {
+          navmenu.classList.remove('mobile-nav-active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        if (navToggle) {
+          navToggle.addEventListener('click', openNav);
+        }
+
+        if (navCloseBtn) {
+          navCloseBtn.addEventListener('click', closeNav);
+        }
+
+        if (overlay) {
+          overlay.addEventListener('click', closeNav);
+        }
+
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            closeNav();
+          });
+        });
+
+        // Close nav on window resize to desktop
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 1199) {
+            closeNav();
+          }
+        });
+
+      })();
+    </script>
   </body>
 </html>
